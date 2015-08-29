@@ -40,6 +40,9 @@ class ASNLookupExpertBot(Bot):
 
             ip = event.value(ip_key)
 
+            if ipaddress.ip_address(ip).version != 4:
+                continue
+
             info = self.database.lookup(ip)
 
             if info:
