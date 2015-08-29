@@ -7,6 +7,7 @@ import sys
 
 import pyasn
 import six
+import ipaddress
 from intelmq.lib.bot import Bot
 
 
