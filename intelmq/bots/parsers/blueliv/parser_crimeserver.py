@@ -40,7 +40,7 @@ class BluelivCrimeserverParserBot(Bot):
             if 'type' in item:
                 event.add('classification.type', TYPES[item['type']], sanitize=True)
             if 'firstSeenAt' in item:
-                event.add('time.source', item['firstSeenAt'][:-4] + '00:00',
+                event.add('time.source', item['lastSeenAt'][:-4] + '00:00',
                           sanitize=True)
             event.add("raw", json.dumps(item, sort_keys=True),
                       sanitize=True)
