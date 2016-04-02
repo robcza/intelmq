@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 import sys
 from dateutil.parser import parse
 import re
+import pytz
 
 from intelmq.lib import utils
 from intelmq.lib.bot import Bot
@@ -35,8 +36,11 @@ class GenericCsvParserBot(Bot):
                     continue
                 try:
                     if key in ["time.source", "time.destination"]:
-                        value = parse(value, fuzzy=True).isoformat()
-                        value += " UTC"
+                        value = parse(value, fuzzy=True)
+                        if value.tzinfo != None:
+                            value = value.astimezone(pytz.UTC)\
+                                .replace(tzinfo=None)
+                        value = value.isoformat() + " UTC"
                     # regex from http://stackoverflow.com/a/23483979
                     # matching ipv4/ipv6 IP within string
                     elif key in ["source.ip", "destination.ip"]:
