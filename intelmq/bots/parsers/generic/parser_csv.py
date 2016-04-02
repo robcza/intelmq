@@ -4,6 +4,7 @@ import sys
 from dateutil.parser import parse
 import re
 import pytz
+import json
 
 from intelmq.lib import utils
 from intelmq.lib.bot import Bot
