@@ -461,8 +461,8 @@ class ParserBot(Bot):
             except Exception:
                 self.logger.exception('Failed to parse line.')
                 self.__failed.append((traceback.format_exc(), line))
-            else:
-                self.send_message(*events)
+#            else:
+#                self.send_message(*events)
 
         for exc, line in self.__failed:
             report_dump = report.copy()
