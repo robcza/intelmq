@@ -26,7 +26,8 @@ TAXONOMY = {
     "blacklist": "Other",
     "unknown": "Other",
     "test": "Test",
-    "other": "Other"
+    "other": "Other",
+    "whitelist": "Other"
 }
 
 
